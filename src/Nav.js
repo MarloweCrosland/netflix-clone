@@ -15,10 +15,12 @@ const transitionNavBar = () => {
 
 useEffect(() => {
     window.addEventListener('scroll', transitionNavBar); 
+    // we clean it up and remove after for best practice
     return () => window.removeEventListener('scroll', transitionNavBar);
 }, []);
 
   return (
+    //   only render the nav_black class if show is true
     <div className={`nav ${show && "nav_black"}`}>
       <div className="nav_contents">
         <img
