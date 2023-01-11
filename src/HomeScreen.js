@@ -25,7 +25,6 @@ export class HomeScreen extends Component {
         <Row
           title="Top Rated"
           fetchUrl={requests.fetchTopRated}
-          isLargeRow
         />
         <Row
           title="Action Movies"

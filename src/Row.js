@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "./axios";
+import "./Row.css";
 
 function Row({ title, fetchUrl, isLargeRow = false }) {
   const [movies, setMovies] = useState([]);
@@ -20,16 +21,23 @@ function Row({ title, fetchUrl, isLargeRow = false }) {
     <div className="row">
       {/* use props that were passed in on HomeScreen */}
       <h2>{title}</h2>
-
-      {movies.map((movie) => (
-        <img
-          src={`${base_url}${
-          isLargeRow ? movie.poster_path : movie.backdrop_path
-        }`}
-          alt={movie.name}
-          key={movie.name}
-        />
-      ))}
+      <div className="row_posters">
+        {movies.map(
+          (movie) =>
+          // conditional to prevent dead links
+            ((isLargeRow && movie.poster_path) ||
+            (!isLargeRow && movie.backdrop_path)) && (
+              <img
+                className={`row_poster ${isLargeRow && "row_posterLarge"}`}
+                src={`${base_url}${
+                  isLargeRow ? movie.poster_path : movie.backdrop_path
+                }`}
+                alt={movie.name}
+                key={movie.id}
+              />
+            )
+        )}
+      </div>
     </div>
   );
 }
