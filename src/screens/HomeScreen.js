@@ -1,9 +1,9 @@
-import Banner from "./Banner.js";
+import Banner from "../Banner.js";
 import React, { Component } from "react";
-import Row from "./Row.js";
-import "./HomeScreen.css";
-import Nav from "./Nav";
-import requests from "./Requests.js";
+import Row from "../Row.js";
+import "../screens/HomeScreen.css";
+import Nav from "../Nav";
+import requests from "../Requests.js";
 
 export class HomeScreen extends Component {
   render() {
